@@ -1,0 +1,39 @@
+import re
+import datetime
+---string
+def strng_check(data):
+unexpected_chars=re.findall(r"[^a-zA-Z0-9\s.,']",string)
+if unexpected_chars:
+	return f"unexpected cHARACTERS FOUND:{','.join(unexpected_chars)}"
+return none
+--number
+def(check_number)(data):
+try:
+	float(data)
+except valueError:
+	return "unexpected numeric value"
+return None
+--------datetime
+def check_date(date):
+try:
+	datetime.datetime.strptime(date,'%Y-%M-%D)
+except valueError:
+	return "Unexpected date format"
+return none
+
+
+for i,pointerin enumerate(data):
+	issues=''
+	string_issue=check_string(value)
+	if string_issue:
+		issues+=f"Data point{i}-{string_issue}\n
+	numeric_issue=check_number(value)
+	if numeric_issue:
+		issues+=f"Data point{i}-{numeric_issue}\n	
+	date_issue=check_date(value)
+	if date_issue:
+		issues+=f"Data point{i}-{date_issue}\n
+	if issues:
+		print(issues)
+	else:
+		print(f"Data point{i}-No quality control issues found")
